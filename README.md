@@ -31,3 +31,11 @@
     - Add two other inputs
         - occupation 
         - house
+- sending an action from WizardForm to App
+    - begin by console logging the wizard submitted in the form
+        - pass an onSubmit to the WizardForm
+            - it should expect to receive the event
+            - it should call `e.preventDefault()`
+        - give the WizardForm's the onSubmit
+        - add a submit button
+- store the new wizard object in a state variable in App

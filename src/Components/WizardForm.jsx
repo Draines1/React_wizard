@@ -11,8 +11,19 @@ function WizardForm(props) {
 
     return (
         <section>
-            <h1>Wizard Form</h1>
-            <form>
+            <h1>{props.title}</h1>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                const wizardObject = {
+                    name,
+                    occupation,
+                    house
+                };
+                props.onSubmit(wizardObject);
+                setName('');
+                setOccupation('');
+                setHouse('');
+            }}>
                 <label>
                     Name:
                 <input 
@@ -32,7 +43,7 @@ function WizardForm(props) {
                 value={occupation}
                 onChange={(e) => {
                     console.log(e.target.value);
-                    setName(e.target.value);
+                    setOccupation(e.target.value);
                     }}
                 />
                 <label>
@@ -49,6 +60,8 @@ function WizardForm(props) {
                 </label>
                 <br />
                 </label>
+                <br />
+                <input type="submit" />
             </form>
         </section>
     );
