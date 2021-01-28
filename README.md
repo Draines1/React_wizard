@@ -39,3 +39,9 @@
         - give the WizardForm's the onSubmit
         - add a submit button
 - store the new wizard object in a state variable in App
+
+# January 27 Activity
+- Create a new component WizardList
+    - add an onClick to be able to click on the name and see the console log
+    - add another onClick to the app to console
+    - useEffect can be used when new props are added in (personal assistant for your components)

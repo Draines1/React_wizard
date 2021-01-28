@@ -1,6 +1,7 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 
 function WizardForm(props) {
+    console.log(props.wizard);
     // we're destructuring two values out of the Array 
     // returned by useState()
     // 1st value is always your state variable
@@ -8,6 +9,26 @@ function WizardForm(props) {
     const [name, setName] = useState('');
     const [occupation, setOccupation] = useState('');
     const [house, setHouse] = useState('');
+
+// when we get new props, run some code. 
+// specifically we want to setName(), setOccupation(),
+// setHouse() using props.wizard
+useEffect(() => {
+    // NEVER modify the variable you're watdching.
+    // that causes an infinite loop
+    // we saw this with Chris on the Dad joke API
+    console.log('the props have changed!!!');
+    if (props.wizard.name) {
+        setName(props.wizard.name);
+        setOccupation(props.wizard.occupation);
+        setHouse(props.wizard.house);
+    }
+}, [ props ]);
+// The array is known as the "dependency array"
+
+useEffect(() => {
+    console.log('you just changed the name');
+}, [ name ]);
 
     return (
         <section>
